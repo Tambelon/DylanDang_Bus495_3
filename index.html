@@ -28,12 +28,16 @@
       color: var(--intel-dark-gray);
       text-align: right;
       background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
     
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 2rem;
+      flex: 1;
     }
     
     .section-title {
@@ -225,6 +229,121 @@
       transform: translateY(-2px);
     }
     
+    /* Footer Styles */
+    footer {
+      background-color: var(--intel-dark-blue);
+      color: var(--intel-white);
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .footer-logo {
+      flex: 0 0 200px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-logo img {
+      max-width: 150px;
+      height: auto;
+    }
+    
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+    }
+    
+    .footer-column {
+      flex: 1;
+      min-width: 150px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-column h4 {
+      color: var(--intel-white);
+      margin-bottom: 1.2rem;
+      font-size: 1.1rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .footer-column h4::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 40px;
+      height: 2px;
+      background-color: var(--intel-blue);
+    }
+    
+    .footer-column ul {
+      list-style: none;
+    }
+    
+    .footer-column ul li {
+      margin-bottom: 0.7rem;
+    }
+    
+    .footer-column ul li a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-column ul li a:hover {
+      color: var(--intel-white);
+      text-decoration: underline;
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1.5rem;
+      margin-top: 2rem;
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .copyright {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-links a {
+      color: var(--intel-white);
+      background-color: rgba(255, 255, 255, 0.1);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--intel-blue);
+      transform: translateY(-3px);
+    }
+    
     /* Responsive Layout */
     @media (max-width: 768px) {
       .columns {
@@ -247,6 +366,19 @@
       .newsletter-section {
         padding: 1.5rem;
         margin: 3rem auto;
+      }
+      
+      .footer-container {
+        flex-direction: column;
+      }
+      
+      .footer-links {
+        gap: 1.5rem;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
       }
     }
     
@@ -360,5 +492,68 @@
       </form>
     </div>
   </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="https://www.intel.com/content/dam/www/global/brand/logos/intel-logo-white.png" alt="Intel Logo">
+      </div>
+      
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>عن إنتل</h4>
+          <ul>
+            <li><a href="#">معلومات عن الشركة</a></li>
+            <li><a href="#">الاستدامة</a></li>
+            <li><a href="#">الابتكار</a></li>
+            <li><a href="#">الوظائف</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>الموارد</h4>
+          <ul>
+            <li><a href="#">مركز التحميل</a></li>
+            <li><a href="#">المستندات الفنية</a></li>
+            <li><a href="#">المعرفة</a></li>
+            <li><a href="#">المكتبة الإعلامية</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>الدعم</h4>
+          <ul>
+            <li><a href="#">اتصل بنا</a></li>
+            <li><a href="#">الأسئلة الشائعة</a></li>
+            <li><a href="#">مركز المساعدة</a></li>
+            <li><a href="#">حالة النظام</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>القوانين</h4>
+          <ul>
+            <li><a href="#">شروط الاستخدام</a></li>
+            <li><a href="#">سياسة الخصوصية</a></li>
+            <li><a href="#">ملفات تعريف الارتباط</a></li>
+            <li><a href="#">الشروط والأحكام</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="copyright">
+          &copy; 2023 شركة إنتل. جميع الحقوق محفوظة.
+        </div>
+        <div class="social-links">
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
