@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <link rel="stylesheet" href="style.css" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>إنتل: الاستدامة عبر العصور</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إنتل: حلول مستدامة</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* Intel Brand Colors & Base Styles */
     :root {
@@ -27,364 +27,175 @@
       line-height: 1.6;
       color: var(--intel-dark-gray);
       text-align: right;
+      background-color: #f9f9f9;
     }
     
-    /* Header Styles */
-    header {
-      background: linear-gradient(135deg, var(--intel-dark-blue) 0%, var(--intel-blue) 100%);
-      color: var(--intel-white);
-      padding: 3rem 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    header > div {
+    .container {
       max-width: 1200px;
       margin: 0 auto;
-      position: relative;
-      z-index: 2;
+      padding: 2rem;
     }
     
-    header img {
-      width: 180px;
-      height: auto;
-      margin-bottom: 1.5rem;
-    }
-    
-    header h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-    
-    header p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto 1.5rem;
-      line-height: 1.5;
-      opacity: 0.9;
-    }
-    
-    /* Timeline Container */
-    .timeline-container {
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 2rem;
-    }
-    
-    .timeline-scroll-message {
+    .section-title {
       text-align: center;
-      color: var(--intel-blue);
+      margin-bottom: 3rem;
+    }
+    
+    .section-title h2 {
+      color: var(--intel-dark-blue);
+      font-size: 2.2rem;
       margin-bottom: 1rem;
-      font-size: 0.9rem;
-      display: none;
     }
     
-    /* Timeline Styles */
-    .timeline {
+    .section-title p {
+      color: var(--intel-dark-gray);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    /* Three Column Layout */
+    .columns {
       display: flex;
-      gap: 1.5rem;
-      padding: 1rem 0;
-      overflow-x: auto;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE */
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
     }
     
-    .timeline::-webkit-scrollbar {
-      display: none; /* Chrome/Safari */
-    }
-    
-    /* Milestone Cards */
-    .milestone {
-      flex: 0 0 300px;
+    .column {
+      flex: 1 1 300px;
       background: var(--intel-white);
       border-radius: 8px;
       box-shadow: var(--card-shadow);
-      overflow: hidden;
-      transition: all 0.3s ease;
-      position: relative;
-      min-height: 400px;
-    }
-    
-    .milestone-content {
-      padding: 1.5rem;
-      position: relative;
-      z-index: 2;
-      background: var(--intel-white);
-      transition: all 0.3s ease;
-    }
-    
-    .milestone h2 {
-      color: var(--intel-blue);
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    .milestone h3 {
-      color: var(--intel-dark-blue);
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    
-    .milestone img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-bottom: 3px solid var(--intel-blue);
-    }
-    
-    .milestone p {
-      color: var(--intel-dark-gray);
-      margin-bottom: 1rem;
-    }
-    
-    .milestone-hover {
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      background: rgba(0, 113, 197, 0.9);
-      color: var(--intel-white);
       padding: 2rem;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: right;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     
-    .milestone-hover h3 {
-      color: var(--intel-white);
-      margin-bottom: 1rem;
-    }
-    
-    .milestone:hover {
+    .column:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 20px rgba(0, 65, 117, 0.2);
     }
     
-    .milestone:hover .milestone-content {
-      opacity: 0;
+    .column-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--intel-dark-blue) 0%, var(--intel-blue) 100%);
+      color: var(--intel-white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
     }
     
-    .milestone:hover .milestone-hover {
-      opacity: 1;
+    .column h3 {
+      color: var(--intel-dark-blue);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .column p {
+      color: var(--intel-dark-gray);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    
+    /* Learn More Link Styles */
+    .learn-more {
+      display: inline-flex;
+      align-items: center;
+      color: var(--intel-blue);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .learn-more:hover {
+      color: var(--intel-dark-blue);
+      text-decoration: underline;
+    }
+    
+    .learn-more i {
+      margin-right: 8px;
+      transition: transform 0.3s ease;
+    }
+    
+    .learn-more:hover i {
+      transform: translateX(-5px);
     }
     
     /* Responsive Layout */
     @media (max-width: 768px) {
-      .timeline {
+      .columns {
         flex-direction: column;
-        overflow-x: visible;
-        gap: 2rem;
       }
       
-      .milestone {
+      .column {
         flex: 1 1 auto;
-        min-height: auto;
       }
       
-      .timeline-scroll-message {
-        display: none;
-      }
-      
-      header h1 {
-        font-size: 2rem;
-      }
-      
-      header p {
-        font-size: 1rem;
+      .section-title h2 {
+        font-size: 1.8rem;
       }
     }
     
-    @media (min-width: 769px) {
-      .timeline-scroll-message {
-        display: block;
+    @media (min-width: 1200px) {
+      .column {
+        flex: 1 1 calc(33.333% - 2rem);
       }
-    }
-    
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: var(--intel-light-gray);
-      color: var(--intel-dark-blue);
     }
   </style>
 </head>
 <body>
-
-  <!-- Header / Hero Section -->
-  <header>
-    <div>
-      <img src="img/intel-header-logo.svg" alt="شعار إنتل" />
-      <h1>
-        الاستدامة عبر العصور
-      </h1>
-      <p>
-        اكتشف رحلة إنتل عبر الزمن، وكيف ساهم التزامنا بالابتكار في تشكيل مستقبل أكثر استدامة للتكنولوجيا وكوكبنا.
-      </p>
+  <div class="container">
+    <div class="section-title">
+      <h2>حلول إنتل المستدامة</h2>
+      <p>اكتشف كيف تقود إنتل الطريق في الابتكار المستدام عبر مختلف المجالات التكنولوجية</p>
     </div>
-  </header>
-
-  <!-- Timeline Section -->
-  <div class="timeline-container">
-    <p class="timeline-scroll-message">→ قم بالتمرير أفقيًا لعرض الخط الزمني ←</p>
     
-    <div class="timeline">
-      <!-- Milestone 1: 1968 -->
-      <div class="milestone">
-        <img src="img/1.jpg" alt="مؤسسا إنتل روبرت نويس وجوردون مور" />
-        <div class="milestone-content">
-          <h2>1968</h2>
-          <h3>تأسيس إنتل</h3>
-          <p>
-            قام روبرت نويس وجوردون مور بتغيير اسم شركة NM Electronics إلى شركة إنتل...
-          </p>
+    <div class="columns">
+      <!-- Column 1: Energy Efficiency -->
+      <div class="column">
+        <div class="column-icon">
+          <i class="fas fa-bolt"></i>
         </div>
-        <div class="milestone-hover">
-          <h3>تأسيس إنتل</h3>
-          <p>قام روبرت نويس وجوردون مور بتغيير اسم الشركة حديثة التأسيس NM Electronics إلى شركة إنتل، مما وضع الأساس لعقود من الابتكار التكنولوجي وممارسات الأعمال المستدامة.</p>
-        </div>
+        <h3>كفاءة الطاقة</h3>
+        <p>
+          تقنيات إنتل المصممة لتقليل استهلاك الطاقة مع الحفاظ على الأداء العالي. ابتكاراتنا في إدارة الطاقة تحقق توفيرًا يصل إلى 40% في استهلاك الطاقة.
+        </p>
+        <a href="#" class="learn-more">
+          <i class="fas fa-arrow-left"></i> اكتشف المزيد
+        </a>
       </div>
-
-      <!-- Milestone 2: 1971 -->
-      <div class="milestone">
-        <img src="img/2.jpg" alt="معالج إنتل 4004 الدقيق" />
-        <div class="milestone-content">
-          <h2>1971</h2>
-          <h3>أول معالج دقيق</h3>
-          <p>
-            أطلقت إنتل معالج 4004، أول معالج دقيق تجاري في العالم...
-          </p>
+      
+      <!-- Column 2: Sustainable Manufacturing -->
+      <div class="column">
+        <div class="column-icon">
+          <i class="fas fa-industry"></i>
         </div>
-        <div class="milestone-hover">
-          <h3>أول معالج دقيق</h3>
-          <p>أطلقت إنتل معالج 4004، أول معالج دقيق تجاري في العالم، مما أشعل ثورة المعالجات الدقيقة. أدى هذا الابتكار في النهاية إلى حلول حوسبة موفرة للطاقة في جميع أنحاء العالم.</p>
-        </div>
+        <h3>التصنيع المستدام</h3>
+        <p>
+          التزامنا بالعمليات الصناعية الصديقة للبيئة يشمل استخدام 99% من الكهرباء من مصادر متجددة وتقليل النفايات في مرافق التصنيع العالمية.
+        </p>
+        <a href="#" class="learn-more">
+          <i class="fas fa-arrow-left"></i> اكتشف المزيد
+        </a>
       </div>
-
-      <!-- Milestone 3: 1978 -->
-      <div class="milestone">
-        <img src="img/3.jpg" alt="معالج إنتل 8086" />
-        <div class="milestone-content">
-          <h2>1978</h2>
-          <h3>معالج 8086</h3>
-          <p>
-            إطلاق معالج 8086، الذي أسس بنية x86...
-          </p>
+      
+      <!-- Column 3: Green Innovation -->
+      <div class="column">
+        <div class="column-icon">
+          <i class="fas fa-leaf"></i>
         </div>
-        <div class="milestone-hover">
-          <h3>معالج 8086</h3>
-          <p>أسس معالج 8086 بنية x86 التي ستشغل عددًا لا يحصى من أجهزة الكمبيوتر والخوادم. بدأت إنتل في تنفيذ عمليات تصنيع أكثر كفاءة لتقليل الأثر البيئي.</p>
-        </div>
-      </div>
-
-      <!-- Milestone 4: 1985 -->
-      <div class="milestone">
-        <img src="img/4.jpg" alt="معالج إنتل 386" />
-        <div class="milestone-content">
-          <h2>1985</h2>
-          <h3>معالج 386</h3>
-          <p>
-            أطلقت إنتل معالج 386 ببنية 32 بت...
-          </p>
-        </div>
-        <div class="milestone-hover">
-          <h3>معالج 386</h3>
-          <p>أطلقت إنتل معالج 386 ببنية 32 بت، مما فتح عصرًا جديدًا من الأداء. بدأت الشركة في تطبيق سياسات بيئية رسمية في مواقع التصنيع الخاصة بها.</p>
-        </div>
-      </div>
-
-      <!-- Milestone 5: 2006 -->
-      <div class="milestone">
-        <img src="img/5.jpg" alt="مصنع إنتل مع مقاييس الاستدامة" />
-        <div class="milestone-content">
-          <h2>2006</h2>
-          <h3>ذروة انبعاثات غازات الدفيئة</h3>
-          <p>
-            تمثل هذه السنة أعلى انبعاثات سنوية لغازات الدفيئة لإنتل...
-          </p>
-        </div>
-        <div class="milestone-hover">
-          <h3>نقطة التحول</h3>
-          <p>بعد الوصول إلى ذروة الانبعاثات، بدأت إنتل برامج تخفيض عدوانية، واستثمرت في تقليل المواد الكيميائية والطاقة المتجددة وعمليات التصنيع الموفرة للطاقة.</p>
-        </div>
-      </div>
-
-      <!-- Milestone 6: 2020 -->
-      <div class="milestone">
-        <img src="img/6.jpg" alt="رسم استراتيجية RISE لإنتل" />
-        <div class="milestone-content">
-          <h2>2020</h2>
-          <h3>استراتيجية RISE</h3>
-          <p>
-            أطلقت إنتل استراتيجية RISE وأهداف 2030...
-          </p>
-        </div>
-        <div class="milestone-hover">
-          <h3>استراتيجية RISE</h3>
-          <p>حددت استراتيجية RISE (المسؤولية، الشمولية، الاستدامة، التمكين) أهدافًا طموحة لعام 2030 للعمل المناخي وإدارة المياه وتقليل النفايات عبر صناعة أشباه الموصلات.</p>
-        </div>
-      </div>
-
-      <!-- Milestone 7: 2022 -->
-      <div class="milestone">
-        <img src="img/7.jpg" alt="رسم التزام صافي صفر" />
-        <div class="milestone-content">
-          <h2>2022</h2>
-          <h3>صافي صفر بحلول 2040</h3>
-          <p>
-            أعلنت إنتل التزامها بتحقيق صافي صفر...
-          </p>
-        </div>
-        <div class="milestone-hover">
-          <h3>التزام صافي صفر</h3>
-          <p>تعهدت إنتل بتحقيق صافي انبعاثات صفرية من غازات الدفيئة عبر عملياتها العالمية بحلول عام 2040، مع أهداف مؤقتة لعام 2030 للطاقة المتجددة وتحسين العمليات.</p>
-        </div>
-      </div>
-
-      <!-- Milestone 8: 2023 -->
-      <div class="milestone">
-        <img src="img/8.jpg" alt="ألواح شمسية في منشأة إنتل" />
-        <div class="milestone-content">
-          <h2>2023</h2>
-          <h3>الكهرباء المتجددة</h3>
-          <p>
-            حققت الشركة استخدام 99% من الكهرباء من مصادر متجددة...
-          </p>
-        </div>
-        <div class="milestone-hover">
-          <h3>إنجاز الطاقة المتجددة</h3>
-          <p>وصلت إنتل إلى استخدام 99% من الكهرباء من مصادر متجددة في جميع أنحاء العالم من خلال اتفاقيات شراء الطاقة والجيل الموقع واعتمادات الطاقة المتجددة.</p>
-        </div>
-      </div>
-
-      <!-- Milestone 9: 2024 -->
-      <div class="milestone">
-        <img src="img/9.jpg" alt="قمة إنتل للاستدامة" />
-        <div class="milestone-content">
-          <h2>2024</h2>
-          <h3>قمة الاستدامة</h3>
-          <p>
-            استضافت إنتل أول قمة للاستدامة...
-          </p>
-        </div>
-        <div class="milestone-hover">
-          <h3>مستقبل تعاوني</h3>
-          <p>جمعت قمة الاستدامة الأولى الموردين والمسؤولين الحكوميين وقادة الصناعة لتسريع ابتكارات التصنيع المستدام لأشباه الموصلات.</p>
-        </div>
+        <h3>الابتكار الأخضر</h3>
+        <p>
+          نطور حلولاً تكنولوجية تدعم الاقتصاد الدائري، من تصميم المنتجات القابلة لإعادة التدوير إلى برامج استعادة المواد الخام.
+        </p>
+        <a href="#" class="learn-more">
+          <i class="fas fa-arrow-left"></i> اكتشف المزيد
+        </a>
       </div>
     </div>
   </div>
-
-  <footer>
-    <p>شركة إنتل | الاستدامة من خلال الابتكار</p>
-  </footer>
 </body>
 </html>
