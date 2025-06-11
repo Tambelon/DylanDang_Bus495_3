@@ -3,271 +3,362 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>اشترك في نشرة إنتل للاستدامة</title>
+  <title>إنتل: حلول مستدامة</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Intel Brand Colors */
+    /* Intel Brand Colors & Base Styles */
     :root {
       --intel-blue: #0071c5;
       --intel-dark-blue: #003865;
       --intel-white: #ffffff;
       --intel-light-gray: #f2f2f2;
       --intel-dark-gray: #333333;
-      --error-color: #e74c3c;
-      --success-color: #2ecc71;
+      --card-shadow: 0 4px 12px rgba(0, 65, 117, 0.15);
     }
     
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     
     body {
-      background-color: #f9f9f9;
-      color: var(--intel-dark-gray);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
+      color: var(--intel-dark-gray);
+      text-align: right;
+      background-color: #f9f9f9;
     }
     
     .container {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
     }
     
-    .newsletter-form {
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-title h2 {
+      color: var(--intel-dark-blue);
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .section-title p {
+      color: var(--intel-dark-gray);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    /* Three Column Layout */
+    .columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    
+    .column {
+      flex: 1 1 300px;
       background: var(--intel-white);
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 65, 117, 0.15);
-      padding: 2.5rem;
-      margin-top: 2rem;
+      box-shadow: var(--card-shadow);
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     
-    .form-header {
+    .column:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 65, 117, 0.2);
+    }
+    
+    .column-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--intel-dark-blue) 0%, var(--intel-blue) 100%);
+      color: var(--intel-white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .column h3 {
+      color: var(--intel-dark-blue);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .column p {
+      color: var(--intel-dark-gray);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    
+    /* Learn More Link Styles */
+    .learn-more {
+      display: inline-flex;
+      align-items: center;
+      color: var(--intel-blue);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .learn-more:hover {
+      color: var(--intel-dark-blue);
+      text-decoration: underline;
+    }
+    
+    .learn-more i {
+      margin-right: 8px;
+      transition: transform 0.3s ease;
+    }
+    
+    .learn-more:hover i {
+      transform: translateX(-5px);
+    }
+    
+    /* Newsletter Form Styles */
+    .newsletter-section {
+      background: linear-gradient(135deg, var(--intel-dark-blue) 0%, var(--intel-blue) 100%);
+      border-radius: 8px;
+      padding: 2.5rem;
+      margin: 4rem auto;
+      max-width: 800px;
+      color: var(--intel-white);
+      box-shadow: var(--card-shadow);
+    }
+    
+    .newsletter-header {
       text-align: center;
       margin-bottom: 2rem;
     }
     
-    .form-header i {
-      font-size: 2.5rem;
-      color: var(--intel-blue);
-      margin-bottom: 1rem;
-    }
-    
-    .form-header h2 {
-      color: var(--intel-dark-blue);
+    .newsletter-header h3 {
       font-size: 1.8rem;
       margin-bottom: 0.5rem;
     }
     
-    .form-header p {
-      color: var(--intel-dark-gray);
+    .newsletter-header p {
       opacity: 0.9;
     }
     
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    
     .form-group {
-      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
     }
     
     .form-group label {
-      display: block;
       margin-bottom: 0.5rem;
       font-weight: 600;
-      color: var(--intel-dark-blue);
     }
     
-    .form-control {
-      width: 100%;
+    .form-group input,
+    .form-group select {
       padding: 0.8rem 1rem;
-      border: 1px solid #ddd;
       border-radius: 4px;
+      border: none;
+      font-family: inherit;
       font-size: 1rem;
-      transition: border-color 0.3s ease;
-      text-align: right;
+      background-color: rgba(255, 255, 255, 0.9);
     }
     
-    .form-control:focus {
-      outline: none;
-      border-color: var(--intel-blue);
-      box-shadow: 0 0 0 2px rgba(0, 113, 197, 0.2);
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: 2px solid var(--intel-white);
+      background-color: var(--intel-white);
     }
     
-    .error-message {
-      color: var(--error-color);
-      font-size: 0.85rem;
-      margin-top: 0.3rem;
-      display: none;
+    .form-row {
+      display: flex;
+      gap: 1.5rem;
     }
     
-    .checkbox-group {
+    .form-row .form-group {
+      flex: 1;
+    }
+    
+    .consent-checkbox {
       display: flex;
       align-items: flex-start;
-      margin-bottom: 1.5rem;
+      gap: 0.8rem;
+      margin: 0.5rem 0;
     }
     
-    .checkbox-group input {
-      margin-left: 0.5rem;
+    .consent-checkbox input {
       margin-top: 0.2rem;
     }
     
-    .checkbox-group label {
-      font-weight: normal;
-      color: var(--intel-dark-gray);
+    .consent-checkbox label {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      opacity: 0.9;
     }
     
-    .btn-submit {
-      background: linear-gradient(135deg, var(--intel-dark-blue) 0%, var(--intel-blue) 100%);
-      color: var(--intel-white);
+    .submit-btn {
+      background-color: var(--intel-white);
+      color: var(--intel-blue);
       border: none;
-      padding: 0.8rem 2rem;
+      padding: 1rem;
       font-size: 1rem;
       font-weight: 600;
       border-radius: 4px;
       cursor: pointer;
-      transition: opacity 0.3s ease;
-      width: 100%;
+      transition: all 0.3s ease;
+      margin-top: 0.5rem;
     }
     
-    .btn-submit:hover {
-      opacity: 0.9;
+    .submit-btn:hover {
+      background-color: var(--intel-light-gray);
+      transform: translateY(-2px);
     }
     
-    .form-footer {
-      text-align: center;
-      margin-top: 1.5rem;
-      font-size: 0.85rem;
-      color: var(--intel-dark-gray);
-    }
-    
-    .success-message {
-      display: none;
-      background-color: rgba(46, 204, 113, 0.1);
-      border: 1px solid var(--success-color);
-      color: var(--success-color);
-      padding: 1rem;
-      border-radius: 4px;
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-    
-    /* Responsive Design */
-    @media (max-width: 600px) {
-      .newsletter-form {
-        padding: 1.5rem;
+    /* Responsive Layout */
+    @media (max-width: 768px) {
+      .columns {
+        flex-direction: column;
       }
       
-      .form-header h2 {
-        font-size: 1.5rem;
+      .column {
+        flex: 1 1 auto;
+      }
+      
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+      
+      .form-row {
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      
+      .newsletter-section {
+        padding: 1.5rem;
+        margin: 3rem auto;
+      }
+    }
+    
+    @media (min-width: 1200px) {
+      .column {
+        flex: 1 1 calc(33.333% - 2rem);
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <form id="subscriptionForm" class="newsletter-form">
-      <div class="success-message" id="successMessage">
-        <i class="fas fa-check-circle"></i> شكراً لك! تم تسجيل اشتراكك بنجاح في نشرة إنتل للاستدامة.
-      </div>
-      
-      <div class="form-header">
-        <i class="fas fa-leaf"></i>
-        <h2>انضم إلى مجتمع الاستدامة</h2>
-        <p>اشترك في نشرتنا الإخبارية لتصلك أحدث التطورات في مبادرات إنتل للاستدامة</p>
-      </div>
-      
-      <div class="form-group">
-        <label for="name">الاسم الكامل</label>
-        <input type="text" id="name" class="form-control" required>
-        <div class="error-message" id="nameError">الرجاء إدخال اسمك الكامل</div>
-      </div>
-      
-      <div class="form-group">
-        <label for="email">البريد الإلكتروني</label>
-        <input type="email" id="email" class="form-control" required>
-        <div class="error-message" id="emailError">الرجاء إدخال بريد إلكتروني صحيح</div>
-      </div>
-      
-      <div class="form-group">
-        <label for="company">الشركة (اختياري)</label>
-        <input type="text" id="company" class="form-control">
-      </div>
-      
-      <div class="form-group">
-        <label>مجالات الاهتمام (اختياري)</label>
-        <div class="checkbox-group">
-          <input type="checkbox" id="interest1" name="interests" value="energy">
-          <label for="interest1">كفاءة الطاقة</label>
+    <div class="section-title">
+      <h2>حلول إنتل المستدامة</h2>
+      <p>اكتشف كيف تقود إنتل الطريق في الابتكار المستدام عبر مختلف المجالات التكنولوجية</p>
+    </div>
+    
+    <div class="columns">
+      <!-- Column 1: Energy Efficiency -->
+      <div class="column">
+        <div class="column-icon">
+          <i class="fas fa-bolt"></i>
         </div>
-        <div class="checkbox-group">
-          <input type="checkbox" id="interest2" name="interests" value="manufacturing">
-          <label for="interest2">التصنيع المستدام</label>
+        <h3>كفاءة الطاقة</h3>
+        <p>
+          تقنيات إنتل المصممة لتقليل استهلاك الطاقة مع الحفاظ على الأداء العالي. ابتكاراتنا في إدارة الطاقة تحقق توفيرًا يصل إلى 40% في استهلاك الطاقة.
+        </p>
+        <a href="#" class="learn-more">
+          <i class="fas fa-arrow-left"></i> اكتشف المزيد
+        </a>
+      </div>
+      
+      <!-- Column 2: Sustainable Manufacturing -->
+      <div class="column">
+        <div class="column-icon">
+          <i class="fas fa-industry"></i>
         </div>
-        <div class="checkbox-group">
-          <input type="checkbox" id="interest3" name="interests" value="innovation">
-          <label for="interest3">الابتكار الأخضر</label>
+        <h3>التصنيع المستدام</h3>
+        <p>
+          التزامنا بالعمليات الصناعية الصديقة للبيئة يشمل استخدام 99% من الكهرباء من مصادر متجددة وتقليل النفايات في مرافق التصنيع العالمية.
+        </p>
+        <a href="#" class="learn-more">
+          <i class="fas fa-arrow-left"></i> اكتشف المزيد
+        </a>
+      </div>
+      
+      <!-- Column 3: Green Innovation -->
+      <div class="column">
+        <div class="column-icon">
+          <i class="fas fa-leaf"></i>
         </div>
+        <h3>الابتكار الأخضر</h3>
+        <p>
+          نطور حلولاً تكنولوجية تدعم الاقتصاد الدائري، من تصميم المنتجات القابلة لإعادة التدوير إلى برامج استعادة المواد الخام.
+        </p>
+        <a href="#" class="learn-more">
+          <i class="fas fa-arrow-left"></i> اكتشف المزيد
+        </a>
       </div>
-      
-      <div class="checkbox-group">
-        <input type="checkbox" id="consent" required>
-        <label for="consent">أوافق على تلقي رسائل إلكترونية من إنتل حول الاستدامة وأوافق على سياسة الخصوصية</label>
-      </div>
-      <div class="error-message" id="consentError">يجب الموافقة على سياسة الخصوصية</div>
-      
-      <button type="submit" class="btn-submit">اشترك الآن</button>
-      
-      <div class="form-footer">
-        سنحترم خصوصيتك. يمكنك إلغاء الاشتراك في أي وقت.
-      </div>
-    </form>
-  </div>
+    </div>
 
-  <script>
-    document.getElementById('subscriptionForm').addEventListener('submit', function(e) {
-      e.preventDefault();
+    <!-- Newsletter Subscription Form -->
+    <div class="newsletter-section">
+      <div class="newsletter-header">
+        <h3>اشترك في نشرتنا الإخبارية للاستدامة</h3>
+        <p>ابق على اطلاع بأحدث المبادرات والتقارير والمستجدات في مجال الاستدامة من إنتل</p>
+      </div>
       
-      // Reset error messages
-      document.querySelectorAll('.error-message').forEach(el => {
-        el.style.display = 'none';
-      });
-      
-      let isValid = true;
-      
-      // Validate name
-      const name = document.getElementById('name').value.trim();
-      if (name === '') {
-        document.getElementById('nameError').style.display = 'block';
-        isValid = false;
-      }
-      
-      // Validate email
-      const email = document.getElementById('email').value.trim();
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        document.getElementById('emailError').style.display = 'block';
-        isValid = false;
-      }
-      
-      // Validate consent
-      if (!document.getElementById('consent').checked) {
-        document.getElementById('consentError').style.display = 'block';
-        isValid = false;
-      }
-      
-      if (isValid) {
-        // Show success message
-        document.getElementById('successMessage').style.display = 'block';
+      <form class="newsletter-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">الاسم الأول</label>
+            <input type="text" id="first-name" name="first-name" required>
+          </div>
+          <div class="form-group">
+            <label for="last-name">اسم العائلة</label>
+            <input type="text" id="last-name" name="last-name" required>
+          </div>
+        </div>
         
-        // Reset form
-        this.reset();
+        <div class="form-group">
+          <label for="email">البريد الإلكتروني</label>
+          <input type="email" id="email" name="email" required>
+        </div>
         
-        // Hide success message after 5 seconds
-        setTimeout(() => {
-          document.getElementById('successMessage').style.display = 'none';
-        }, 5000);
-      }
-    });
-  </script>
+        <div class="form-group">
+          <label for="country">البلد</label>
+          <select id="country" name="country" required>
+            <option value="">اختر بلدك</option>
+            <option value="SA">المملكة العربية السعودية</option>
+            <option value="AE">الإمارات العربية المتحدة</option>
+            <option value="EG">مصر</option>
+            <option value="KW">الكويت</option>
+            <option value="QA">قطر</option>
+            <option value="BH">البحرين</option>
+            <option value="OM">عمان</option>
+            <option value="JO">الأردن</option>
+            <option value="LB">لبنان</option>
+            <option value="other">دولة أخرى</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <div class="consent-checkbox">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">أوافق على تلقي رسائل البريد الإلكتروني من إنتل حول الاستدامة والأخبار ذات الصلة. يمكنك إلغاء الاشتراك في أي وقت.</label>
+          </div>
+        </div>
+        
+        <button type="submit" class="submit-btn">اشترك الآن <i class="fas fa-envelope"></i></button>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
