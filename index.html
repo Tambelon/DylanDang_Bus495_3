@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>إنتل: حلول مستدامة</title>
+  <title>إنتل: حلول مستدامة - الصفحة الرئيسية</title>
+  <meta name="description" content="اكتشف مبادرات إنتل في مجال الاستدامة البيئية والابتكار الأخضر">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Intel Brand Colors & Base Styles */
+    /* Updated Intel Brand Colors with AA/AAA Contrast Compliance */
     :root {
-      --intel-blue: #0071c5;
-      --intel-dark-blue: #003865;
+      --intel-blue: #0067b8; /* Adjusted for better contrast */
+      --intel-dark-blue: #00304d; /* Darkened for better contrast */
       --intel-white: #ffffff;
-      --intel-light-gray: #f2f2f2;
-      --intel-dark-gray: #333333;
+      --intel-light-gray: #f5f5f5;
+      --intel-dark-gray: #222222; /* Darkened for better readability */
+      --intel-text-gray: #444444; /* For secondary text */
       --card-shadow: 0 4px 12px rgba(0, 65, 117, 0.15);
     }
     
@@ -27,7 +29,7 @@
       line-height: 1.6;
       color: var(--intel-dark-gray);
       text-align: right;
-      background-color: #f9f9f9;
+      background-color: var(--intel-light-gray);
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -52,7 +54,7 @@
     }
     
     .section-title p {
-      color: var(--intel-dark-gray);
+      color: var(--intel-text-gray);
       max-width: 700px;
       margin: 0 auto;
     }
@@ -114,9 +116,11 @@
       transition: color 0.3s ease;
     }
     
-    .learn-more:hover {
+    .learn-more:hover, .learn-more:focus {
       color: var(--intel-dark-blue);
       text-decoration: underline;
+      outline: 2px solid var(--intel-dark-blue);
+      outline-offset: 3px;
     }
     
     .learn-more i {
@@ -124,11 +128,11 @@
       transition: transform 0.3s ease;
     }
     
-    .learn-more:hover i {
+    .learn-more:hover i, .learn-more:focus i {
       transform: translateX(-5px);
     }
     
-    /* Newsletter Form Styles */
+    /* Newsletter Form Styles - Enhanced Accessibility */
     .newsletter-section {
       background: linear-gradient(135deg, var(--intel-dark-blue) 0%, var(--intel-blue) 100%);
       border-radius: 8px;
@@ -147,16 +151,18 @@
     .newsletter-header h3 {
       font-size: 1.8rem;
       margin-bottom: 0.5rem;
+      color: var(--intel-white);
     }
     
     .newsletter-header p {
       opacity: 0.9;
+      color: var(--intel-light-gray);
     }
     
     .newsletter-form {
       display: flex;
       flex-direction: column;
-      gap: 1.2rem;
+      gap: 1.5rem;
     }
     
     .form-group {
@@ -167,21 +173,25 @@
     .form-group label {
       margin-bottom: 0.5rem;
       font-weight: 600;
+      color: var(--intel-white);
     }
     
     .form-group input,
     .form-group select {
       padding: 0.8rem 1rem;
       border-radius: 4px;
-      border: none;
+      border: 2px solid transparent;
       font-family: inherit;
       font-size: 1rem;
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255, 0.95);
+      transition: all 0.3s ease;
     }
     
     .form-group input:focus,
     .form-group select:focus {
-      outline: 2px solid var(--intel-white);
+      outline: none;
+      border-color: var(--intel-white);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
       background-color: var(--intel-white);
     }
     
@@ -202,13 +212,20 @@
     }
     
     .consent-checkbox input {
-      margin-top: 0.2rem;
+      margin-top: 0.3rem;
+      width: 1.2rem;
+      height: 1.2rem;
     }
     
     .consent-checkbox label {
       font-size: 0.9rem;
       line-height: 1.4;
-      opacity: 0.9;
+      color: var(--intel-light-gray);
+    }
+    
+    .consent-checkbox a {
+      color: var(--intel-white);
+      text-decoration: underline;
     }
     
     .submit-btn {
@@ -222,14 +239,34 @@
       cursor: pointer;
       transition: all 0.3s ease;
       margin-top: 0.5rem;
+      width: 100%;
     }
     
-    .submit-btn:hover {
+    .submit-btn:hover, .submit-btn:focus {
       background-color: var(--intel-light-gray);
       transform: translateY(-2px);
+      outline: 2px solid var(--intel-white);
+      outline-offset: 2px;
     }
     
-    /* Footer Styles */
+    /* Error Message Styles */
+    .error-message {
+      color: #ffcccb;
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+      display: none;
+    }
+    
+    .form-group.error input,
+    .form-group.error select {
+      border-color: #ffcccb;
+    }
+    
+    .form-group.error .error-message {
+      display: block;
+    }
+    
+    /* Footer Styles - Enhanced Contrast */
     footer {
       background-color: var(--intel-dark-blue);
       color: var(--intel-white);
@@ -295,18 +332,22 @@
     }
     
     .footer-column ul li a {
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.9);
       text-decoration: none;
       transition: color 0.3s ease;
+      padding: 0.2rem 0;
+      display: inline-block;
     }
     
-    .footer-column ul li a:hover {
+    .footer-column ul li a:hover,
+    .footer-column ul li a:focus {
       color: var(--intel-white);
       text-decoration: underline;
+      outline: none;
     }
     
     .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
       padding-top: 1.5rem;
       margin-top: 2rem;
       text-align: center;
@@ -318,7 +359,7 @@
     }
     
     .copyright {
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.9);
       font-size: 0.9rem;
     }
     
@@ -329,7 +370,7 @@
     
     .social-links a {
       color: var(--intel-white);
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(255, 255, 255, 0.15);
       width: 36px;
       height: 36px;
       border-radius: 50%;
@@ -339,9 +380,25 @@
       transition: all 0.3s ease;
     }
     
-    .social-links a:hover {
+    .social-links a:hover,
+    .social-links a:focus {
       background-color: var(--intel-blue);
       transform: translateY(-3px);
+      outline: none;
+    }
+    
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: var(--intel-dark-blue);
+      color: white;
+      padding: 0.5rem 1rem;
+      z-index: 100;
+    }
+    
+    .skip-link:focus {
+      left: 0;
     }
     
     /* Responsive Layout */
@@ -390,7 +447,10 @@
   </style>
 </head>
 <body>
-  <div class="container">
+  <!-- Skip to Content Link for Screen Readers -->
+  <a href="#main-content" class="skip-link">تخطي إلى المحتوى الرئيسي</a>
+  
+  <div class="container" id="main-content" tabindex="-1">
     <div class="section-title">
       <h2>حلول إنتل المستدامة</h2>
       <p>اكتشف كيف تقود إنتل الطريق في الابتكار المستدام عبر مختلف المجالات التكنولوجية</p>
@@ -399,7 +459,7 @@
     <div class="columns">
       <!-- Column 1: Energy Efficiency -->
       <div class="column">
-        <div class="column-icon">
+        <div class="column-icon" aria-hidden="true">
           <i class="fas fa-bolt"></i>
         </div>
         <h3>كفاءة الطاقة</h3>
@@ -407,13 +467,13 @@
           تقنيات إنتل المصممة لتقليل استهلاك الطاقة مع الحفاظ على الأداء العالي. ابتكاراتنا في إدارة الطاقة تحقق توفيرًا يصل إلى 40% في استهلاك الطاقة.
         </p>
         <a href="#" class="learn-more">
-          <i class="fas fa-arrow-left"></i> اكتشف المزيد
+          <i class="fas fa-arrow-left" aria-hidden="true"></i> اكتشف المزيد
         </a>
       </div>
       
       <!-- Column 2: Sustainable Manufacturing -->
       <div class="column">
-        <div class="column-icon">
+        <div class="column-icon" aria-hidden="true">
           <i class="fas fa-industry"></i>
         </div>
         <h3>التصنيع المستدام</h3>
@@ -421,13 +481,13 @@
           التزامنا بالعمليات الصناعية الصديقة للبيئة يشمل استخدام 99% من الكهرباء من مصادر متجددة وتقليل النفايات في مرافق التصنيع العالمية.
         </p>
         <a href="#" class="learn-more">
-          <i class="fas fa-arrow-left"></i> اكتشف المزيد
+          <i class="fas fa-arrow-left" aria-hidden="true"></i> اكتشف المزيد
         </a>
       </div>
       
       <!-- Column 3: Green Innovation -->
       <div class="column">
-        <div class="column-icon">
+        <div class="column-icon" aria-hidden="true">
           <i class="fas fa-leaf"></i>
         </div>
         <h3>الابتكار الأخضر</h3>
@@ -435,7 +495,7 @@
           نطور حلولاً تكنولوجية تدعم الاقتصاد الدائري، من تصميم المنتجات القابلة لإعادة التدوير إلى برامج استعادة المواد الخام.
         </p>
         <a href="#" class="learn-more">
-          <i class="fas fa-arrow-left"></i> اكتشف المزيد
+          <i class="fas fa-arrow-left" aria-hidden="true"></i> اكتشف المزيد
         </a>
       </div>
     </div>
@@ -443,30 +503,34 @@
     <!-- Newsletter Subscription Form -->
     <div class="newsletter-section">
       <div class="newsletter-header">
-        <h3>اشترك في نشرتنا الإخبارية للاستدامة</h3>
+        <h3 id="newsletter-heading">اشترك في نشرتنا الإخبارية للاستدامة</h3>
         <p>ابق على اطلاع بأحدث المبادرات والتقارير والمستجدات في مجال الاستدامة من إنتل</p>
       </div>
       
-      <form class="newsletter-form">
+      <form class="newsletter-form" aria-labelledby="newsletter-heading">
         <div class="form-row">
           <div class="form-group">
             <label for="first-name">الاسم الأول</label>
-            <input type="text" id="first-name" name="first-name" required>
+            <input type="text" id="first-name" name="first-name" required aria-required="true">
+            <div class="error-message" id="first-name-error">يرجى إدخال الاسم الأول</div>
           </div>
           <div class="form-group">
             <label for="last-name">اسم العائلة</label>
-            <input type="text" id="last-name" name="last-name" required>
+            <input type="text" id="last-name" name="last-name" required aria-required="true">
+            <div class="error-message" id="last-name-error">يرجى إدخال اسم العائلة</div>
           </div>
         </div>
         
         <div class="form-group">
           <label for="email">البريد الإلكتروني</label>
-          <input type="email" id="email" name="email" required>
+          <input type="email" id="email" name="email" required aria-required="true" aria-describedby="email-hint">
+          <div class="error-message" id="email-error">يرجى إدخال بريد إلكتروني صحيح</div>
+          <div id="email-hint" class="hint-text" style="display:none;">مثال: example@domain.com</div>
         </div>
         
         <div class="form-group">
           <label for="country">البلد</label>
-          <select id="country" name="country" required>
+          <select id="country" name="country" required aria-required="true">
             <option value="">اختر بلدك</option>
             <option value="SA">المملكة العربية السعودية</option>
             <option value="AE">الإمارات العربية المتحدة</option>
@@ -479,16 +543,23 @@
             <option value="LB">لبنان</option>
             <option value="other">دولة أخرى</option>
           </select>
+          <div class="error-message" id="country-error">يرجى اختيار بلدك</div>
         </div>
         
         <div class="form-group">
           <div class="consent-checkbox">
-            <input type="checkbox" id="consent" name="consent" required>
-            <label for="consent">أوافق على تلقي رسائل البريد الإلكتروني من إنتل حول الاستدامة والأخبار ذات الصلة. يمكنك إلغاء الاشتراك في أي وقت.</label>
+            <input type="checkbox" id="consent" name="consent" required aria-required="true">
+            <label for="consent">
+              أوافق على تلقي رسائل البريد الإلكتروني من إنتل حول الاستدامة والأخبار ذات الصلة. يمكنك إلغاء الاشتراك في أي وقت. <a href="#" style="color: white; text-decoration: underline;">اطلع على سياسة الخصوصية</a>
+            </label>
           </div>
+          <div class="error-message" id="consent-error">يجب الموافقة على الشروط للمتابعة</div>
         </div>
         
-        <button type="submit" class="submit-btn">اشترك الآن <i class="fas fa-envelope"></i></button>
+        <button type="submit" class="submit-btn">
+          <span aria-hidden="true"><i class="fas fa-envelope"></i></span>
+          <span>اشترك الآن</span>
+        </button>
       </form>
     </div>
   </div>
@@ -497,63 +568,151 @@
   <footer>
     <div class="footer-container">
       <div class="footer-logo">
-        <img src="https://www.intel.com/content/dam/www/global/brand/logos/intel-logo-white.png" alt="Intel Logo">
+        <img src="https://www.intel.com/content/dam/www/global/brand/logos/intel-logo-white.png" alt="شعار إنتل - العودة إلى الصفحة الرئيسية" width="150" height="40">
       </div>
       
       <div class="footer-links">
         <div class="footer-column">
           <h4>عن إنتل</h4>
           <ul>
-            <li><a href="#">معلومات عن الشركة</a></li>
-            <li><a href="#">الاستدامة</a></li>
-            <li><a href="#">الابتكار</a></li>
-            <li><a href="#">الوظائف</a></li>
+            <li><a href="#" aria-label="معلومات عن شركة إنتل">معلومات عن الشركة</a></li>
+            <li><a href="#" aria-label="استراتيجية إنتل للاستدامة">الاستدامة</a></li>
+            <li><a href="#" aria-label="ابتكارات إنتل التكنولوجية">الابتكار</a></li>
+            <li><a href="#" aria-label="الوظائف المتاحة في إنتل">الوظائف</a></li>
           </ul>
         </div>
         
         <div class="footer-column">
           <h4>الموارد</h4>
           <ul>
-            <li><a href="#">مركز التحميل</a></li>
-            <li><a href="#">المستندات الفنية</a></li>
-            <li><a href="#">المعرفة</a></li>
-            <li><a href="#">المكتبة الإعلامية</a></li>
+            <li><a href="#" aria-label="مركز تحميل برامج إنتل">مركز التحميل</a></li>
+            <li><a href="#" aria-label="المستندات الفنية لمنتجات إنتل">المستندات الفنية</a></li>
+            <li><a href="#" aria-label="قاعدة معرفة إنتل">المعرفة</a></li>
+            <li><a href="#" aria-label="المكتبة الإعلامية لإنتل">المكتبة الإعلامية</a></li>
           </ul>
         </div>
         
         <div class="footer-column">
           <h4>الدعم</h4>
           <ul>
-            <li><a href="#">اتصل بنا</a></li>
-            <li><a href="#">الأسئلة الشائعة</a></li>
-            <li><a href="#">مركز المساعدة</a></li>
-            <li><a href="#">حالة النظام</a></li>
+            <li><a href="#" aria-label="اتصل بفريق إنتل">اتصل بنا</a></li>
+            <li><a href="#" aria-label="الأسئلة الشائعة حول منتجات إنتل">الأسئلة الشائعة</a></li>
+            <li><a href="#" aria-label="مركز المساعدة لإنتل">مركز المساعدة</a></li>
+            <li><a href="#" aria-label="حالة أنظمة إنتل">حالة النظام</a></li>
           </ul>
         </div>
         
         <div class="footer-column">
           <h4>القوانين</h4>
           <ul>
-            <li><a href="#">شروط الاستخدام</a></li>
-            <li><a href="#">سياسة الخصوصية</a></li>
-            <li><a href="#">ملفات تعريف الارتباط</a></li>
-            <li><a href="#">الشروط والأحكام</a></li>
+            <li><a href="#" aria-label="شروط استخدام موقع إنتل">شروط الاستخدام</a></li>
+            <li><a href="#" aria-label="سياسة خصوصية إنتل">سياسة الخصوصية</a></li>
+            <li><a href="#" aria-label="إعدادات ملفات تعريف الارتباط">ملفات تعريف الارتباط</a></li>
+            <li><a href="#" aria-label="الشروط والأحكام لإنتل">الشروط والأحكام</a></li>
           </ul>
         </div>
       </div>
       
       <div class="footer-bottom">
         <div class="copyright">
-          &copy; 2023 شركة إنتل. جميع الحقوق محفوظة.
+          &copy; <span id="current-year">2023</span> شركة إنتل. جميع الحقوق محفوظة.
         </div>
         <div class="social-links">
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="إنتل على تويتر"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="إنتل على لينكد إن"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="إنتل على فيسبوك"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="إنتل على يوتيوب"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
     </div>
   </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Form validation
+    document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let isValid = true;
+      
+      // Validate first name
+      const firstName = document.getElementById('first-name');
+      if (!firstName.value.trim()) {
+        document.getElementById('first-name-error').style.display = 'block';
+        firstName.parentElement.classList.add('error');
+        isValid = false;
+      } else {
+        document.getElementById('first-name-error').style.display = 'none';
+        firstName.parentElement.classList.remove('error');
+      }
+      
+      // Validate last name
+      const lastName = document.getElementById('last-name');
+      if (!lastName.value.trim()) {
+        document.getElementById('last-name-error').style.display = 'block';
+        lastName.parentElement.classList.add('error');
+        isValid = false;
+      } else {
+        document.getElementById('last-name-error').style.display = 'none';
+        lastName.parentElement.classList.remove('error');
+      }
+      
+      // Validate email
+      const email = document.getElementById('email');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email.value)) {
+        document.getElementById('email-error').style.display = 'block';
+        email.parentElement.classList.add('error');
+        isValid = false;
+      } else {
+        document.getElementById('email-error').style.display = 'none';
+        email.parentElement.classList.remove('error');
+      }
+      
+      // Validate country
+      const country = document.getElementById('country');
+      if (!country.value) {
+        document.getElementById('country-error').style.display = 'block';
+        country.parentElement.classList.add('error');
+        isValid = false;
+      } else {
+        document.getElementById('country-error').style.display = 'none';
+        country.parentElement.classList.remove('error');
+      }
+      
+      // Validate consent
+      const consent = document.getElementById('consent');
+      if (!consent.checked) {
+        document.getElementById('consent-error').style.display = 'block';
+        consent.parentElement.parentElement.classList.add('error');
+        isValid = false;
+      } else {
+        document.getElementById('consent-error').style.display = 'none';
+        consent.parentElement.parentElement.classList.remove('error');
+      }
+      
+      if (isValid) {
+        // Form is valid, submit data
+        alert('شكراً لك على اشتراكك في نشرتنا الإخبارية!');
+        this.reset();
+      } else {
+        // Focus on first error field
+        const firstError = document.querySelector('.error input, .error select');
+        if (firstError) {
+          firstError.focus();
+        }
+      }
+    });
+    
+    // Show email hint on focus
+    document.getElementById('email').addEventListener('focus', function() {
+      document.getElementById('email-hint').style.display = 'block';
+    });
+    
+    document.getElementById('email').addEventListener('blur', function() {
+      document.getElementById('email-hint').style.display = 'none';
+    });
+  </script>
 </body>
 </html>
